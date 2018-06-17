@@ -11,9 +11,19 @@ public class question2 {
 
 	public static void main(String[] args) {
 		
-		author a = new author();
+		book bookw = new book();
+		bookw.setBname("book-101");
 		
-		Configuration con = new Configuration().configure().addAnnotatedClass(author.class);
+		AuthorName aname = new AuthorName();
+		aname.setFname("raka");
+		aname.setLname("divine");
+		
+		author a = new author();
+		a.setName(aname);		//set the author name embeddable column
+		a.setAge(25);
+		a.setBookw(bookw);		//set the bookw - foreign key
+		
+		Configuration con = new Configuration().configure().addAnnotatedClass(author.class).addAnnotatedClass(book.class);
 		
 		ServiceRegistry reg = new ServiceRegistryBuilder().applySettings(con.getProperties()).buildServiceRegistry();
 		
@@ -23,6 +33,8 @@ public class question2 {
 		 
 		Transaction tx = session.beginTransaction();
 		
+		session.save(a);
+		session.save(bookw);
 		tx.commit();
 		session.close();
 
