@@ -12,7 +12,10 @@ public class author {
 	private AuthorName name;
 	
 	private int age;
-
+	
+	@OneToOne
+	private book bookw;
+	
 	public int getAid() {
 		return aid;
 	}
@@ -35,6 +38,14 @@ public class author {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public book getBookw() {
+		return bookw;
+	}
+
+	public void setBookw(book bookw) {
+		this.bookw = bookw;
 	}
 
 	@Override

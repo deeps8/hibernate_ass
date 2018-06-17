@@ -11,6 +11,7 @@ public class question2 {
 
 	public static void main(String[] args) {
 		
+		author a = new author();
 		
 		Configuration con = new Configuration().configure().addAnnotatedClass(author.class);
 		

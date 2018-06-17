@@ -15,7 +15,7 @@ public class question_1 {
 		
 		Scanner in = new Scanner(System.in);
 		
-		Configuration con = new Configuration().configure().addAnnotatedClass(author.class);
+		Configuration con = new Configuration().configure().addAnnotatedClass(author.class).addAnnotatedClass(book.class);
 		
 		ServiceRegistry reg = new ServiceRegistryBuilder().applySettings(con.getProperties()).buildServiceRegistry();
 		
@@ -43,12 +43,6 @@ public class question_1 {
 			 
 			 session.save(a);
 		 }
-		 
-		 con = new Configuration().configure().addAnnotatedClass(book.class);
-		 
-		 sf = con.buildSessionFactory(reg);
-		 
-		 session = sf.openSession();
 		 
 		 for(int i=0;i<10;i++) {
 			 
