@@ -10,6 +10,17 @@ public class book {
 	private int bid;
 	
 	private String Bname;
+	
+	@OneToOne
+	private author aid;
+	
+	public author getAid() {
+		return aid;
+	}
+
+	public void setAid(author aid) {
+		this.aid = aid;
+	}
 
 	public int getBid() {
 		return bid;
